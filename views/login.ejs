@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Form</title>
+	<style>
+		 body {
+      font-family: Arial, sans-serif;
+      background-color: #efe8e8;
+      margin: 0;
+      padding: 0;
+    }
+		
+		form {
+			padding: 20px;
+			background-color: #e3dede;
+			max-width: 400px;
+			margin-left: 40%;
+			margin-top: 5%;
+			border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+		
+		
+		}
+		.lass-dv{
+				margin: 0;
+				color: #454446;
+				padding-left: 120px;
+				
+			} 
+
+		.labl{
+			margin-top: 15px;
+		}
+			
+		input[type=text], input[type=password] {
+			width: 100%;
+			padding: 10px 20px;
+			margin: 15px 0;
+			/* display: inline-block; */
+			border-radius: 4px;
+			border: 1px solid #ccc;
+			box-sizing: border-box;
+		}
+		button {
+			background-color: #4ba44b;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			cursor: pointer;
+			width: 100%;
+		}
+        button:hover{
+         background-color: rgb(32, 125, 125);
+        }
+	</style>
+</head>
+<body>
+	<%- include('home.ejs')-%>
+	<form>
+		<div class="lass-dv">
+			<h1>Login Form</h1>
+		</div>
+
+		<div class="labl">
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username" required>
+		<label for="password" >Password:</label>
+		<input type="password" id="password" name="password" required>
+		<button type="submit">Login</button>
+	</div>
+	</form>
+</body>
+</html>
