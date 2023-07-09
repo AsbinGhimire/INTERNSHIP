@@ -1,4 +1,5 @@
 const{ users } = require("../model")
+const bcrypt = require('bcrypt');
 
 //for registration 
 exports.registerUser = async(req,res)=>{
@@ -16,10 +17,16 @@ const {name, email, password} = req.body
 await users.create({
     name: name,
     email: email,
-    password: password
+    password: bcrypt.hashSync(password,10),
 }),
 
 // register vaeapaxi login page maa jaa vaneko
 res.redirect("/login")
 }
 
+
+
+// for login
+exports.loginUser = async(req,res)=>{
+    // 
+}

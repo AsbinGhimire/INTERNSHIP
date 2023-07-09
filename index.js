@@ -32,6 +32,8 @@ app.get("/register",(req,res) => {
 app.post("/register",registerUser);
 // console.log(req.body);
 
+// app.post("/login",loginUser)
+
 app.listen (3000, () =>{
     console.log('server has started on port no: 3000')
 })
