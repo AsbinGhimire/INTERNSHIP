@@ -13,10 +13,10 @@ const {name, email, password} = req.body
 
 
 // await users.create(req.body) 
-
 await users.create({
     name: name,
     email: email,
+    // password: password,
     password: bcrypt.hashSync(password,10),
 }),
 
@@ -25,8 +25,26 @@ res.redirect("/login")
 }
 
 
-
-// for login
 exports.loginUser = async(req,res)=>{
-    // 
-}
+ console.log(req.body)
+
+const {email, password} = req.body
+const userExist = await users.findAll(
+    {
+    where: {
+        email: email}
+});
+console.log(userExist)
+
+if (userExist.length == 0)
+    {
+        res.render('errors.ejs');
+    }else{
+       const isPasswordCorrect = bcrypt.compareSync(password, userExist[0].password);
+       if (isPasswordCorrect){
+        res.redirect('/home');
+        }else{
+            res.redirect('/login');
+        }
+       }
+    }
